@@ -9,15 +9,16 @@ You can make u own AR marker. Visit my thecnical [website](http://e98517l3.beget
 * Portable
 * Support AR feautures 
 * Personalized AR marker for your model
+* Support every Android from 4.2.2
         
 # Project installation
-!Warning! Do not upgrade Unity or Vuforia. App and web services works properly only this versions.
+!Warning! Do not upgrade Unity or Vuforia. App and web services works properly only this on versions.
 1. Download repository 
 2. Open Unity  hub
 3. Click "ADD" button and choose repository folder
 
 # Technology stack
-!Warning! Do not upgrade Unity or Vuforia. App and web services works properly only this versions.
+!Warning! Do not upgrade Unity or Vuforia. App and web services works properly only on this versions.
 - C#
 - Unity3D 2017.4.29f1
 - Vuforia 7.0.36:a4264b6554f5a9a10c97ec9358a33dab
