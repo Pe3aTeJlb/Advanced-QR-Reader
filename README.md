@@ -24,7 +24,8 @@ You can make u own AR marker. Visit my thecnical [website](http://e98517l3.beget
 - Vuforia 7.0.36:a4264b6554f5a9a10c97ec9358a33dab
 
 # Showcase
-You can see the app in action on [YouTube](https://www.youtube.com/watch?v=9DGWy_s9waM)
+You can see the app in action on YouTube [video 1](https://www.youtube.com/watch?v=9DGWy_s9waM) [video 2](https://www.youtube.com/watch?v=HfPlSCHxCjM)
+
 
 # Contacts
 Email: shepuhi404@gmail.com or shepuhin@yandex.ru
