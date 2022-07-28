@@ -6,7 +6,7 @@ public class ShowMenuTrigger : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     public void OnPointerDown(PointerEventData pointerEventData)
     {
-       MenuController.trig = true;
+        MenuController.trig = true;
     }
 
     public void OnPointerUp(PointerEventData pointerEventData)

@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FocusTrigger : MonoBehaviour, IPointerUpHandler {
+public class FocusTrigger : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+{
 
     public void OnPointerUp(PointerEventData pointerEventData)
     {
-        VuforiaScanner.Focus();
+		VuforiaScanner.Focus();
     }
+
+	public void OnPointerDown(PointerEventData pointerEventData)
+	{
+		
+	}
 
 }

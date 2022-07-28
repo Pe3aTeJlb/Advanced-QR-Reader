@@ -6,9 +6,8 @@ public class MenuController : MonoBehaviour
 
     private Vector2 startPos;
     private Vector2 target;
-    public static bool trig,trig2,trig3;
+    public static bool trig, trig2, trig3;
     public int width;
-    public GameObject obj;
 
     void Start()
     {
@@ -18,7 +17,7 @@ public class MenuController : MonoBehaviour
 
     void Update()
     {
-       
+
         var tr = transform as RectTransform;
         tr.anchoredPosition = Vector2.MoveTowards(tr.anchoredPosition, target, moveSpeed * Time.deltaTime);
 
@@ -37,7 +36,8 @@ public class MenuController : MonoBehaviour
             {
                 case TouchPhase.Began: startPos = touch.position; break;
 
-                case TouchPhase.Moved:
+				case TouchPhase.Moved:
+				Debug.Log (touch.position.x - startPos.x);
                     if (trig == true)
                     {
                         if (touch.position.x - startPos.x > 20)

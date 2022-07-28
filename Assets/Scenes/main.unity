@@ -146,7 +146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: 0.000061035156}
+  m_AnchoredPosition: {x: -0.000015258789, y: 0.000061035156}
   m_SizeDelta: {x: 0, y: 900}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &19425865
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 671667885}
         m_MethodName: Increase
         m_Mode: 1
         m_Arguments:
@@ -862,7 +862,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 671667885}
         m_MethodName: Settings
         m_Mode: 1
         m_Arguments:
@@ -1468,7 +1468,7 @@ MonoBehaviour:
   target: {fileID: 1745121729}
   IsModel: 0
   count: 0
-  test: http://e98517l3.beget.tech/?op=page+alias=5+mkey=487be
+  test: PplosStudioARMarker id=4 mkey=1658918584
 --- !u!1 &541337872
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,14 +2104,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 790947504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2690acfa7cae95d4bb3dc0f3ed3a1172, type: 3}
+  m_Script: {fileID: 11500000, guid: 31d330c98a9921346b9a9e86bebceee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 600
-  startPos: {x: 0, y: 0}
-  target: {x: 0, y: 0}
   width: -350
-  obj: {fileID: 0}
 --- !u!114 &790947507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2780,7 +2777,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 671667885}
         m_MethodName: Scan_Again
         m_Mode: 1
         m_Arguments:
@@ -4417,7 +4414,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 671667885}
         m_MethodName: About
         m_Mode: 1
         m_Arguments:
@@ -4751,7 +4748,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 671667885}
         m_MethodName: Decrease
         m_Mode: 1
         m_Arguments:
@@ -5244,7 +5241,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 671667885}
         m_MethodName: Instruction
         m_Mode: 1
         m_Arguments:
@@ -6150,7 +6147,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1762817694}
   m_Direction: 0
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6335,7 +6332,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2024333593}
   m_Direction: 2
   m_Value: 0.9999998
-  m_Size: 0.65528554
+  m_Size: 0.6661092
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6757,7 +6754,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 671667885}
         m_MethodName: Visit_Our_WtbSite
         m_Mode: 1
         m_Arguments:

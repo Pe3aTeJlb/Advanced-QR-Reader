@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Advertisements;
 
 public class UIController : MonoBehaviour
 {
     public static string Status,QRData;
     public Text t1,t3,t4,t5;
-    public GameObject instruction, settings, about, menuSlider_image, scan_button,outputText_image, outputHyperlink_image, sun, im_target;
+    public GameObject instruction, settings, about, menuSlider_image, scan_button, outputText_image, outputHyperlink_image, sun, im_target;
     public Toggle tg2,sun_tg;
     public static bool bt_en;
 
     public static GameObject s_im2, s_im3;
-
-    public string gameID;
-    public string placementID;
-    public bool testMode;
     public static bool someth_open = false;
 
     private void Start()
@@ -37,16 +32,7 @@ public class UIController : MonoBehaviour
 
         outputHyperlink_image.SetActive(false);
         outputText_image.SetActive(false);
-
-
-        if (Advertisement.isSupported)
-        {
-            UIController.Status = "supported";
-            Advertisement.Initialize(gameID, testMode);
-            Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
-            StartCoroutine(ShowAd());
-        }
-
+	
     }
     
     void Update()
@@ -83,36 +69,7 @@ public class UIController : MonoBehaviour
         {
             scan_button.SetActive(false);
         }
-        if (someth_open == true) {
-            Advertisement.Banner.Hide();
-        }
 
-    }
-
-
-    public IEnumerator ShowAd()
-    {
-        yield return new WaitForSeconds(1);
-
-
-        while (!Advertisement.IsReady(placementID))
-        {
-
-            if (Advertisement.IsReady(placementID))
-            {
-                Status = "ready";
-            }
-            else { Status = "not ready"; }
-
-            yield return null;
-
-        }
-
-        while (someth_open == true) {
-            yield return null;
-        }
-
-        Advertisement.Banner.Show("ingamebanner");
     }
 
     public void Scan_Again() {
@@ -141,19 +98,16 @@ public class UIController : MonoBehaviour
     public void Instruction() {
         instruction.SetActive(true);
         someth_open = true;
-        Advertisement.Banner.Hide();
     }
 
     public void Settings() {
         settings.SetActive(true);
         someth_open = true;
-        Advertisement.Banner.Hide();
     }
 
     public void About() {
         about.SetActive(true);
         someth_open = true;
-        Advertisement.Banner.Hide();
     }
 
     public void Hyperlink()
@@ -164,13 +118,11 @@ public class UIController : MonoBehaviour
     public static void Just_Text() {
         s_im2.SetActive(true);
         someth_open = true;
-        Advertisement.Banner.Hide();
     }
 
     public static void Just_Hyperlink() {
         s_im3.SetActive(true);
         someth_open = true;
-        Advertisement.Banner.Hide();
     }
 
     public void Close()
@@ -186,12 +138,11 @@ public class UIController : MonoBehaviour
         QRData = null;
         MenuController.trig3 = true;
         someth_open = false;
-        Advertisement.Banner.Show();
 
     }
 
     public void Visit_Our_WtbSite() {
-        Application.OpenURL("https://sites.google.com/view/pplosstudio/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F");
+        Application.OpenURL("https://sites.google.com/view/pplosstudio");
     }
 
 }

@@ -41,7 +41,7 @@ public class VuforiaScanner : MonoBehaviour
         scan_again = true;
 
         //  StartCoroutine(Chek_Internet_Connection());
-        //  StartCoroutine(Get(test));
+       //   StartCoroutine(Get(test));
     }
 
     IEnumerator InitializeCamera()
@@ -96,7 +96,8 @@ public class VuforiaScanner : MonoBehaviour
                             scan_again = false;
                             StartCoroutine(QRSucces());
                             Data = data.Text;
-                            string[] DATATR = Data.Split(new Char[] { '\t', '\t', '\n' });
+                            //string[] DATATR = Data.Split(new Char[] { '\t', '\t', '\n' });
+							string[] DATATR = Data.Split('!');
 
                             foreach (string ln in DATATR)
                             {
@@ -117,7 +118,8 @@ public class VuforiaScanner : MonoBehaviour
 
                             if (IsModel == true && data.Text != Data)
                             {
-                                OBJ2 = OBJLoader.LoadOBJFile(Data);
+								string dt = Data.Replace('!', '\n');
+                                OBJ2 = OBJLoader.LoadOBJFile(dt);
                                 OBJ2.layer = 4;
                                 Mesh M = OBJ2.transform.GetComponentInChildren<MeshFilter>().mesh;
                                 M.RecalculateBounds();
@@ -147,26 +149,27 @@ public class VuforiaScanner : MonoBehaviour
 
                                 if (DATATR2[0] == "http:" || DATATR2[0] == "https:")
                                 {
-                                    if (DATATR2[2] == "e98517l3.beget.tech")
-                                    {
-                                        //&&  data.Text != Data
-                                        StartCoroutine(ChekInternetConnection(Data));
-                                        //  StartCoroutine(Get(Data));
+									UIController.QRData = Data;
+									UIController.Just_Hyperlink();
+									UIController.bt_en = true;
+								}else {
+									string[] DATATR3 = Data.Split(' ');
+									if (DATATR3[0] == "PplosStudioARMarker")
+									{
+										//&&  data.Text != Data
+										StartCoroutine(ChekInternetConnection(Data));
+										//  StartCoroutine(Get(Data));
 
-                                    }
-                                    else
-                                    {
-                                        UIController.QRData = Data;
-                                        UIController.Just_Hyperlink();
-                                        UIController.bt_en = true;
-                                    }
+									}
+									else
+									{
+										UIController.QRData = Data;
+										UIController.Just_Text();
+										UIController.bt_en = true;
+									}
+										
                                 }
-                                else
-                                {
-                                    UIController.QRData = Data;
-                                    UIController.Just_Text();
-                                    UIController.bt_en = true;
-                                }
+                                
                             }
                         }
                         else
@@ -213,30 +216,35 @@ public class VuforiaScanner : MonoBehaviour
 
     }
 
-    public IEnumerator Get(string url)
+    public IEnumerator Get(string data)
     {
 
         Destroy(OBJ2);
-        url = url.Trim().Replace("+", "&");
-        url = url.Trim().Replace(" ", "&");
-        // Debug.Log(url);
-        string rawData;
-        string[] lines;
+		string[] urlData = data.Split(' ');
+		string url = "https://pplos-studio-db-default-rtdb.europe-west1.firebasedatabase.app/PplosStudio/models/";
+		url += urlData [1].Split('=')[1].Trim() + ".json?password=" + urlData[2].Split('=')[1].Trim();
+        Debug.Log(url);
+
+        string json;
         string userAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36";
         Dictionary<string, string> ht = new Dictionary<string, string>();
         ht["User-Agent"] = userAgent;
 
-        using (WWW www = new WWW(url, null, ht))
-        {
-            yield return www;
-            rawData = www.text;
-        }
+		using (UnityWebRequest www = UnityWebRequest.Get(url))
+		{
+			yield return www.Send();
+			if(www.isNetworkError || www.isHttpError)
+			{
+				yield break;
+			}
+			else
+			{	
+				json = www.downloadHandler.text;
+			}
+		}
 
-
-        lines = rawData.Split(new char[] { '>', '<' });
-        Data = lines[14];
-
-        OBJ2 = OBJLoader.LoadOBJFile(Data);
+		Data = ModelData.createFromJSON(json).data.Replace('!', '\n');
+		OBJ2 = OBJLoader.LoadOBJFile(Data);
         Mesh M = OBJ2.transform.GetComponentInChildren<MeshFilter>().mesh;
 
         M.RecalculateBounds();
@@ -302,8 +310,6 @@ public class VuforiaScanner : MonoBehaviour
 
     public IEnumerator ChekInternetConnection(string Data)
     {
-        //https://www.google.ru/
-        /*http://e98517l3.beget.tech/check.jpg"*/
 
         using (UnityWebRequest webRequest = UnityWebRequest.Get("https://www.google.ru/"))
         {
@@ -335,5 +341,19 @@ public class VuforiaScanner : MonoBehaviour
     {
         CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_TRIGGERAUTO);
     }
+
+	[System.Serializable]
+	public class ModelData
+	{
+		
+		public string data;
+		public string password;
+
+		public static ModelData createFromJSON(string jsonString)
+		{
+			return JsonUtility.FromJson<ModelData>(jsonString);
+		}
+
+	}
 
 }
