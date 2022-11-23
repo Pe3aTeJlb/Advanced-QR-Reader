@@ -1,4 +1,4 @@
-# Advanced-QR-Reader
+# Advanced-QR-Reader <img src="https://github.com/Pe3aTeJlb/Pe3aTeJlb/blob/main/ReadmeResources/Multi-QR-Reader/unnamed.png" width="50" height="50" />
 The app allows you to visualize your 3D models in augmented reality with help of QR-Code.
 It was written during 2019's April sprint.
 Main project feature is based on Vuforia AR marker issue, which allows you to surround QR-Code with another image. Vuforia markers database can't clinge to QR-Code but it can clinge to surrounding image. Additionally, DB recognizes that there is something like 'square' in the center. This factor allows me to unify AR achor marker for infinity models count.
@@ -24,10 +24,10 @@ You can make u own AR marker. Visit my thecnical [website](http://e98517l3.beget
 - Vuforia 7.0.36:a4264b6554f5a9a10c97ec9358a33dab
 
 # Showcase
-You can see the app in action on YouTube [video 1](https://www.youtube.com/watch?v=9DGWy_s9waM) [video 2](https://www.youtube.com/watch?v=HfPlSCHxCjM)
-
+You can see the app in action on YouTube [video 1](https://www.youtube.com/watch?v=9DGWy_s9waM) [video 2](https://www.youtube.com/watch?v=HfPlSCHxCjM)  
+<img src="https://github.com/Pe3aTeJlb/Pe3aTeJlb/blob/main/ReadmeResources/Multi-QR-Reader/bQqH0PmqMNs.jpg" width="480" height="800" />
 
 # Contacts
-Email: shepuhin@yandex.ru
-Telegram: @Pe3aTeJlb
+Email: shepuhin@yandex.ru  
+Telegram: @Pe3aTeJlb  
 Or visit my [website](https://sites.google.com/view/pplosstudio/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F)
